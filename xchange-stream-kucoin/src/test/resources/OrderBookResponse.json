@@ -1,0 +1,14 @@
+{
+  "type":"message",
+  "topic":"/market/level2:BTC-USDT",
+  "subject":"trade.l2update",
+  "data":{
+    "sequenceStart":1545896669105,
+    "sequenceEnd":1545896669106,
+    "symbol":"BTC-USDT",
+    "changes":{
+      "asks":[["6","1","1545896669105"]],
+      "bids":[["4","1","1545896669106"]]
+    }
+  }
+}
