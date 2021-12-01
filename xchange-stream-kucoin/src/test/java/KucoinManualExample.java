@@ -13,7 +13,6 @@ public class KucoinManualExample {
                 .addOrderbook(CurrencyPair.ETH_USDT)
                 .addOrderbook(CurrencyPair.BTC_USDT)
                 .addTrades(CurrencyPair.ETH_USDT)
-                .addTicker(CurrencyPair.BTC_USDT)
                 .build();
 
         ExchangeSpecification spec =
@@ -53,22 +52,9 @@ public class KucoinManualExample {
                         },
                         throwable -> log.error("ERROR in getting trade: ", throwable));
 
-        Disposable sub4 = exchange
-                .getStreamingMarketDataService()
-                .getTicker(CurrencyPair.BTC_USDT)
-                .subscribe(
-                        ticker -> {
-                            log.info("Ticker Ask Price: {}", ticker.getAsk());
-                            log.info("Ticker Bid Price: {}", ticker.getBid());
-                            log.info("Ticker Bid Size: {}", ticker.getAskSize());
-                            log.info("Ticker Bid Size: {}", ticker.getBidSize());
-                        },
-                        throwable -> log.error("ERROR in getting ticker: ", throwable));
-
         Thread.sleep(1000);
         sub1.dispose();
         sub2.dispose();
         sub3.dispose();
-        sub4.dispose();
     }
 }
