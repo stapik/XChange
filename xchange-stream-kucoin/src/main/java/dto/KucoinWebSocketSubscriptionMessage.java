@@ -1,23 +1,22 @@
 package dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
-
 
 @Getter
-@Setter
+@AllArgsConstructor
 public class KucoinWebSocketSubscriptionMessage {
     @JsonProperty("id")
-    long id;
+    private final long id;
 
     @JsonProperty("type")
-    String type;
+    private final String type;
 
     @JsonProperty("topic")
-    String topic;
+    private final String topic;
 
     @JsonProperty("response")
-    boolean response;
+    private final boolean response;
 }
 

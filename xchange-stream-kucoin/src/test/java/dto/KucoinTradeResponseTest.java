@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.math.BigDecimal;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -34,12 +35,12 @@ public class KucoinTradeResponseTest {
         Assert.assertEquals("trade.l3match", message.getSubject());
 
         // Data
-        Assert.assertEquals("1545896669145", message.getData().getSequence());
+        Assert.assertEquals(1545896669145L, message.getData().getSequence());
         Assert.assertEquals("type", message.getData().getType());
         Assert.assertEquals("BTC-USDT", message.getData().getSymbol());
         Assert.assertEquals("buy", message.getData().getSide());
-        Assert.assertEquals("0.08200000000000000000", message.getData().getPrice());
-        Assert.assertEquals("0.01022222000000000000", message.getData().getSize());
+        Assert.assertEquals(new BigDecimal("0.08200000000000000000"), message.getData().getPrice());
+        Assert.assertEquals(new BigDecimal("0.01022222000000000000"), message.getData().getSize());
         Assert.assertEquals("5c24c5da03aa673885cd67aa", message.getData().getTradeId());
         Assert.assertEquals("5c24c5d903aa6772d55b371e", message.getData().getTakerOrderId());
         Assert.assertEquals("5c2187d003aa677bd09d5c93", message.getData().getMakerOrderId());

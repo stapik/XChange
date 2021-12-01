@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.knowm.xchange.kucoin.KucoinExchange;
 
 @Slf4j
-public class KucoinStreamingExchange extends KucoinExchange implements StreamingExchange {
+public final class KucoinStreamingExchange extends KucoinExchange implements StreamingExchange {
 
   private final String V2_URL = "wss://push1-v2.kucoin.com/endpoint";
 

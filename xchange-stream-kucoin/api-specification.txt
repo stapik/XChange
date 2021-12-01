@@ -1,1 +1,3 @@
 https://docs.kucoin.com/#websocket-feed
+
+'Trade' is 'Match' (KuCoin API)

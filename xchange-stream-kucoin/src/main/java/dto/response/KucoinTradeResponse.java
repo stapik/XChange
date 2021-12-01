@@ -1,56 +1,58 @@
 package dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
+
+import java.math.BigDecimal;
 
 @Getter
-@Setter
-public class KucoinTradeResponse extends KucoinWebSocketResponse {
+@AllArgsConstructor
+public class KucoinTradeResponse {
     @JsonProperty("type")
-    String type;
+    private final String type;
 
     @JsonProperty("topic")
-    String topic;
+    private final String topic;
 
     @JsonProperty("subject")
-    String subject;
+    private final String subject;
 
     @JsonProperty("data")
-    Data data;
+    private final Data data;
 
     @Getter
-    @Setter
-    public class Data {
+    @AllArgsConstructor
+    public static class Data {
         @JsonProperty("sequence")
-        String sequence;
+        private final long sequence;
 
         @JsonProperty("type")
-        String type;
+        private final String type;
 
         @JsonProperty("symbol")
-        String symbol;
+        private final String symbol;
 
         @JsonProperty("side")
-        String side;
+        private final String side;
 
         @JsonProperty("price")
-        String price;
+        private final BigDecimal price;
 
         @JsonProperty("size")
-        String size;
+        private final BigDecimal size;
 
         @JsonProperty("tradeId")
-        String tradeId;
+        private final String tradeId;
 
         @JsonProperty("takerOrderId")
-        String takerOrderId;
+        private final String takerOrderId;
 
         @JsonProperty("makerOrderId")
-        String makerOrderId;
+        private final String makerOrderId;
 
         @JsonProperty("time")
-        String time;
+        private final String time;
     }
 }
 

@@ -1,40 +1,49 @@
 package dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
-public class KucoinOrderBookResponse extends KucoinWebSocketResponse{
+@AllArgsConstructor
+public class KucoinOrderBookResponse {
+
+    @JsonProperty("type")
+    private final String type;
+
+    @JsonProperty("topic")
+    private final String topic;
+
+    @JsonProperty("subject")
+    private final String subject;
 
     @JsonProperty("data")
-    Data data;
+    private final Data data;
 
     @Getter
-    @Setter
-    public class Changes {
+    @AllArgsConstructor
+    public static class Changes {
         @JsonProperty("asks")
-        String[][] asks;
+        private final String[][] asks;
 
         @JsonProperty("bids")
-        String[][] bids;
+        private final String[][] bids;
     }
 
     @Getter
-    @Setter
-    public class Data {
+    @AllArgsConstructor
+    public static class Data {
         @JsonProperty("sequenceStart")
-        long sequenceStart;
+        private final long sequenceStart;
 
         @JsonProperty("sequenceEnd")
-        long sequenceEnd;
+        private final long sequenceEnd;
 
         @JsonProperty("symbol")
-        String symbol;
+        private final String symbol;
 
         @JsonProperty("changes")
-        Changes changes;
+        private final Changes changes;
     }
 }
 
